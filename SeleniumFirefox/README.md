@@ -1,8 +1,8 @@
-# Chrome Selenium
+# Firefox Selenium
 
 ## Software Installed
 
-* Google Chrome Browser Version 74
+* Mozilla Firefox Browser Version 66
 * Selenium Version 3.141.59
 * Python 2.7
 
@@ -25,7 +25,7 @@ cd /path/to/cloned/repository
 The container will need to be built once from the provided Dockerfile. To do this, run the following after navigating to the repository (note, you may use any name for the container on your machine):
 
 ```console
-docker build --rm -f "SeleniumChrome/Dockerfile" -t nameofcontainer:latest SeleniumChrome
+docker build --rm -f "SeleniumFirefox/Dockerfile" -t nameofcontainer:latest SeleniumFirefox
 ```
 
 Once the container is build, you can enter it in an interactive manner, mount a local directory into the container, and run your tests using Python inside the container.
@@ -45,7 +45,7 @@ docker run -v /full/path/to/tests/python:/etc/selenium -it nameofcontainer /bin/
 If you need to pass in environment variables to the container, this can be done with the `-e` flag within Docker, as follows:
 
 ```console
-docker run -v /full/path/to/tests/python:/etc/selenium -ite EnvironmentVar1='value-of-environment-variable' -e EnvironmentVar2='value-of-other-environment-variable' seleniumchrome_nd /bin/sh
+docker run -v /full/path/to/tests/python:/etc/selenium -ite EnvironmentVar1='value-of-environment-variable' -e EnvironmentVar2='value-of-other-environment-variable' nameofcontainer /bin/sh
 ```
 
 Once in the container, you may need to make your python scripts executable. You may do this by running the following (assuming that you have placed your scripts in the /etc/selenium directory):
