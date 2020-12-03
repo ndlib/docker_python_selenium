@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Firefox Docker image
+      run: |
+        cd SeleniumFirefox
+        docker build . --file Dockerfile --tag selenium-firefox:$(date +%s)
+    - name: Build the Chrome Docker image
+      run: |
+       - cd SeleniumChrome
+       - docker build . --file Dockerfile --tag selenium-chrome:$(date +%s)
