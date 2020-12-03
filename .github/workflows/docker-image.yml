@@ -19,5 +19,5 @@ jobs:
         docker build . --file Dockerfile --tag selenium-firefox:$(date +%s)
     - name: Build the Chrome Docker image
       run: |
-       - cd SeleniumChrome
-       - docker build . --file Dockerfile --tag selenium-chrome:$(date +%s)
+        cd SeleniumChrome
+        docker build . --file Dockerfile --tag selenium-chrome:$(date +%s)
